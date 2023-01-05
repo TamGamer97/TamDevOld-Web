@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <!-- Vanta JS for 3d background animations -->
+</head>
+<body  style="background-color: #15191E; overflow-x: hidden;">
+    <div id="fp" style="width: 100vw; height: 110vh; position: relative; top: 0px; left: 0px; background-image: url(bg.png); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <div id="pageNav" style="display: flex; justify-content: center; gap: 20px;">
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">Reviews</h1>
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">Course</h1>
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">News</h1>
+                <h1 class="pages" style="font-size: 18px; color: #FF3D3D; text-align: center; margin-top: 25px;">Home</h1>
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">About</h1>
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">Projects</h1>
+                <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px;">Contact</h1>
+                <div style="width: 700px; height: 1px; background-color: red; top: 70px; position: absolute; font-weight: bold;"></div>
+            </div>
+            <img src="IconTogethor.png" style="position: absolute; top: 20px; left: 30px; width: 120px; height: 50px;" />
+            <img src="menuIconnonfilled.png" id="menuBtn" style="position: absolute; display: none; top: 23px; right: 30px; width: 45px; height: 45px;" />
+        </div>
+
+        <div style="position: relative; margin-left: 80px; margin-top: 100px;">
+            <h1 style="color: white; font-size: 45px;">Welcome,</h1>
+            <h1 style="color: white; font-size: 45px; margin-top: -50px">I'm <span style="color: #FF3D3D;">Tam DEV</span> </h1>
+            
+            <div id="fpAds" onclick='document.getElementById("thirdPage").scrollIntoView({behavior: "smooth", block: "start"});' onmouseover="courseTxtAnim(true)" onmouseleave="courseTxtAnim(false)" class="fpAds" style="width: 30vw; height: 34vh; margin-top: -20px; background-color: #161C23; border-radius: 10px; border: solid red 1px; display: flex; justify-content: center; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; background-image: url(AbdullasBanner.png); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+                <!-- <img id="profilePic" style="width: 50px; height: 50px; background-color: white; border-radius: 50px; margin-top: 10px; border: none"></img>
+
+                <h1 id="textReview" style="position: absolute; font-size: 20px; color: white; margin-top: 75px; width: 350px; height: 10px; text-align: center; ">Hello, amazing site, I had a good tim...</h1>
+
+                <div style="position: absolute; bottom: 8px">
+                    <img src="star.png" style="width: 22px; height: 22px">
+                    <img src="star.png" style="width: 22px; height: 22px">
+                    <img src="star.png" style="width: 22px; height: 22px">
+                    <img src="star.png" style="width: 22px; height: 22px">
+                    <img src="star.png" style="width: 22px; height: 22px">
+                </div> -->
+            </div>
+            <div onclick='document.getElementById("thirdPage").scrollIntoView({behavior: "smooth", block: "start"});' style="width: 30vw; height: 34vh; background-color: none; position: absolute; top: 160px; background-color: none;" onmouseover="courseTxtAnim(true)" onmouseleave="courseTxtAnim(false)" >
+                <h1 onmouseover="courseTxtAnim(true)" id="courseTitleTxt" class="courseTitleTxt" style=" font-size: 25px; position: absolute; bottom: -10px; left: 20px; color: #FF3D3D; display: none;">Limited Time Offer!</h1>
+            </div>
+
+
+        </div>
+        
+        <div id="abtDiv" style="display: flex; justify-content: center;">
+            <div onclick='document.getElementById("secondPage").scrollIntoView({behavior: "smooth", block: "start"});' class="abtBtn" style="width: 200px; height: 45px; background-color: transparent; border-radius: 10px; border: solid #FF3D3D 2px; position: relative; bottom: -40px; z-index: 50;">
+                <h1 style="color: #FF3D3D; font-size: 16px; text-align: center; margin-top: 8px; z-index: 0;">About</h1>
+            </div>
+        </div>
+        <!-- <div style="display: flex; justify-content: center;">
+            <img style="position: relative; bottom: 50px" src="downarrowgif.gif">
+        </div> -->
+    </div>
+    <div id="secondPage" style="width: 100vw; height: 100vh; position: relative; top: 0px; left: 0px; background-color: #15191E; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        
+
+        <div style="position: absolute; left: 110px; top: 30px;">
+            <div onclick=' document.getElementById("aboutBtn").scrollIntoView({behavior: "smooth", block: "start"});' id="aboutBtn" class="abtBtn" style="width: 200px; height: 45px; background-color: #FF3D3D; position: relative; display: flex; align-items: center;">
+                <h1 style="color: white; font-size: 16px; margin-left: 20px;">About Me</h1>
+            </div>
+            <!-- <h1 style="color: #FF3D3D; font-size: 40px; text-decoration-line: underline">About</h1> -->
+            <h1 style="color: #FF3D3D; font-size: 20px; margin-top: 10px">All-round software developing and learning</h1>
+        </div>
+        
+        <div style="display: flex; justify-content: center;">
+
+            <div id="aboutTopics" style="background-color: none; width: 90vw; height: 50vh; margin-top: 150px;  display: flex; justify-content: center; position: relative; top: 60px">
+                
+                <div id="aboutTopicsChild" style="display: flex; justify-content: center; flex-direction: row;">
+                    <div id="abtTopicEle1" style="width: 30vw; height: 100%; background-color: none; display: flex; justify-content: center;">
+                        <img src="courseIcon.png" style="width: 70px; height: 80px; position: absolute;">
+                        <h1 style="color: #FF3D3D; font-size: 20px; text-align: center; margin-top: 100px; background-color: none; width: 98%; line-height: 28px">
+                            Ccurrently released 1 course that is dedicated to learning Python for beginners in under 1hr.
+                            A JavaScript course is in the makings for 2024.
+                        </h1>
+                    </div>
+                    <div id="abtTopicEle2" style="width: 30vw; height: 100%; background-color: none; display: flex; justify-content: center;">
+                        <img src="freelancingIcon.png" style="width: 70px; height: 80px; position: absolute;">
+                        <h1 style="color: #FF3D3D; font-size: 20px; text-align: center; margin-top: 100px; background-color: none; width: 98%; line-height: 28px">
+                            Currently develop professional mobile apps and websites. And have sold a number of them, receiving 5
+                            <br> star reviews.
+                        </h1>
+                    </div>
+                    <div id="abtTopicEle3" style="width: 30vw; height: 100%; background-color: none; display: flex; justify-content: center;">
+                        <img src="designIcon.png" style="width: 70px; height: 80px; position: absolute;">
+                        <h1 style="color: #FF3D3D; font-size: 20px; text-align: center; margin-top: 100px; background-color: none; width: 98%; line-height: 28px">
+                            Also do a lot of graphical design work from mobile and web UI UX designs,
+                            to a few YouTube Intro designs,
+                            <br> and Editing.                    </h1>
+                    </div>
+                </div>
+                
+    
+            </div>
+
+            <div id="abtImages" style="background-color: none; width: 90vw; height: 50vh; position: absolute; margin-top: 150px; display: flex; justify-content: center; top: 300px;">
+                <div class="abtImg" style="width: 28vw; height: 28.88vh; margin-right: 10px; margin-left: 10px; background-color: orange; display: flex; justify-content: center; border: solid white 0.5px; background-image: url(pyjs.png); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+                </div>
+                <div class="abtImg" style="width: 28vw; height: 28.88vh; margin-right: 10px; margin-left: 10px; background-color: orange; display: flex; justify-content: center; border: solid white 0.5px; background-image: url(calcthumbnail.png); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+                </div>
+                <div class="abtImg" style="width: 28vw; height: 28.88vh; margin-right: 10px; margin-left: 10px; background-color: orange; display: flex; justify-content: center; border: solid white 0.5px; background-image: url(appdesign.png); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        
+        <div onclick='document.getElementById("newsBtn").scrollIntoView({behavior: "smooth", block: "start"});' id="newsBtn" class="abtBtn" style="width: 200px; height: 45px; background-color: #FF3D3D; position: absolute; bottom: -100px; left: 50px; z-index: 50;">
+            <h1 style="color: white; font-size: 16px; margin-left: 20px; margin-top: 8px; z-index: 0;">News</h1>
+        </div>
+    </div>
+    <div id="thirdPage" style="width: 100vw; height: 100vh; position: relative; top: 50px; left: 0px; background-color: #15191E; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; display: flex; justify-content: center;">
+        
+        
+        <div id="newsArticle" style="width: 95vw; height: 90vh; background-color: none; position: relative; top: 60px; background-color: rgba(149, 149, 149, 0.242); background-color: transparent; ">
+            <div onclick="window.open('https://www.udemy.com/course/ultimate-python-beginners-course/?couponCode=ABDULLAH30'); " class="oneArticle" style="width: 40vw; height: 50vh; border: solid none 0.5px; position: relative; display: flex; justify-content: center; flex-direction: column; background-color: #0D0E11;">
+                <div style="display: flex; justify-content: center;">
+                    <div style="width: 97%; height: 70%; border: none grey 0.5px; position: absolute; top: 10px; background-image: url(AbdullasBanner.png); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"></div>
+                </div>
+                <h1 style="color: #FF3D3D; font-size: 20px; margin-left: 20px; line-height: 25px; position: absolute; bottom: 20px;">Ultimate Python Beginners Course On Sale! <br> 30% OFF with Code: 'Abdullah30'</h1>
+            
+            </div>
+            <div onclick=" window.open('https://www.udemy.com/course/ultimate-python-beginners-course/?referralCode=168DE925C79E135BAED9') " class="oneArticle" id="news2" style="width: 40vw; height: 30vh; border: solid none 0.5px; position: absolute; display: flex; background-color: #A435F0; flex-direction: row; bottom: 50px;">
+                <div style="display: flex; align-items: center;" id="news2Child">
+                    <h1 style="color: rgb(255, 255, 255); font-size: 20px; margin-left: 20px; line-height: 25px; width: 27vw; margin-right: 10px;">Python Beginners Course Published On Udemy. <br> Skillshare still in review...</h1>
+                    <div style="width: 150px; height: 150px; border: none grey 0.5px; position: absolute; right: 20px; border-radius: 20px; background-image: url(udemyIcon.png); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"></div>
+                </div>
+            </div>
+            
+            <div class="oneArticle" id="news3" style="width: 53vw; height: 40vh; border: solid none 0.5px; position: absolute; display: flex; background-color: #070D19; flex-direction: row; bottom: 50px; right: 10px;">
+                <div style="display: flex; align-items: center;" id="news3Child">
+                    <div id="news3Img" style="width: 350px; height: 180px; border: solid grey 0.5px; position: relative; border-radius: 0px; margin-left: 20px; background-image: url(calcthumbnail.png); background-position: center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;"></div>
+                    <h1 style="color: #FF3D3D; font-size: 20px; margin-left: 20px; line-height: 25px; width: 50%; margin-right: 10px;">Watch: Speed Building A Calculator App with React Native (Expo).
+                        <br> <br>
+                        Part of the DESIGN and DEV series. Currently been unlisted on YouTube
+                    </h1>
+                </div>
+            </div>
+
+            <div class="oneArticle" id="news4" style="width: 53vw; height: 40vh; border: solid grey 0.5px; position: absolute; display: flex; justify-content: center; align-items: center; background-color: none; flex-direction: row; top: 0px; right: 10px;">
+                <div style="display: flex; align-items: center; justify-content: center;">
+
+                    <div style="width: 40vw; height: 100%; background-color: none; display: flex; justify-content: center;">
+                        <img src="designIcon.png" style="width: 80px; height: 80px; position: absolute;">
+                        <h1 style="color: #FF3D3D; font-size: 20px; text-align: center; margin-top: 100px; background-color: none; width: 80%; line-height: 28px">
+                            Want to publish something on this News Page? <br> Contact: contact.tamdev@gmail.com               
+                        </h1>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+
+        </div>
+    
+    </div>
+    <div id="footerPage" style="width: 100vw; height: 150px; margin-top: 50px; position: relative; display: flex; flex-direction: row; bottom: 0px; left: 0px; background-color: #080b0d; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; display: flex; justify-content: center;">
+        <img src="IconTogethor.png" style="position: absolute; top: 20px; left: 30px; width: 120px; height: 50px;" />
+        <div style="display: flex; flex-direction: row; gap: 20px;">
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">Reviews</h1>
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">Course</h1>
+            <h1 class="pages" style="font-size: 18px; color: #FF3D3D; text-align: center; margin-top: 25px; height: 50px;">News</h1>
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">Home</h1>
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">About</h1>
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">Projects</h1>
+            <h1 class="pages" style="font-size: 18px; text-align: center; margin-top: 25px; height: 50px;">Contact</h1>
+        </div>
+        <h1 style="font-size: 18px; text-align: center; margin-top: 75px; position: absolute; color: white">Contact: contact.tamdev@gmail.com</h1>
+    </div>
+</body>
+<script>
+    function courseTxtAnim(show){
+        if(show)
+        {
+            $('.courseTitleTxt').css({'bottom': '-30px'}),
+            $('.courseTitleTxt').css({'display': 'none'}),
+            $('.courseTitleTxt').animate({'bottom': -10}, {"duration":300,"queue":false});
+            $('.courseTitleTxt').fadeIn(300);
+
+            document.getElementById('fpAds').style.opacity = 0.2
+        }else{
+            $('.courseTitleTxt').css({'bottom': '-10px'}),
+            $('.courseTitleTxt').animate({'bottom': -20}, {"duration":300,"queue":false});
+            $('.courseTitleTxt').fadeOut(300);
+
+            // setTimeout(() => {
+            //     document.getElementById('courseTitleTxt').style.display = 'none'
+            // }, 400);
+            document.getElementById('fpAds').style.opacity = 1
+        }
+        }
+
+
+
+    function Resize()
+    {
+        const pageWidth = window.innerWidth
+        const pageHeight = window.innerHeight
+        
+        if(pageWidth < 1112)
+        {
+            // make it mobile
+
+            document.getElementById('pageNav').style.display = 'none'
+            document.getElementById('menuBtn').style.display = 'flex'
+            document.getElementById('abtDiv').style.width = '450px'
+            document.getElementById('fpAds').style.height = '22vh'
+            document.getElementById('fpAds').style.width = '50vw'
+            document.getElementById('aboutTopicsChild').style.flexDirection = 'column'
+            document.getElementById('aboutTopics').style.marginTop = '310px'
+            document.getElementById('abtImages').style.flexDirection = 'column'
+            document.getElementById('abtImages').style.top = '820px'
+            document.getElementById('abtImages').style.justifyContent = 'center'
+            document.getElementById('secondPage').style.height = '190vh'
+            // document.getElementById('news3').style.position = 'relative'
+            document.getElementById('news2').style.position = 'relative'
+            document.getElementById('news2').style.bottom = '-20px'
+            document.getElementById('news3').style.position = 'relative'
+            document.getElementById('news3').style.bottom = '-20px'
+            document.getElementById('news3').style.marginTop = '20px'
+            document.getElementById('thirdPage').style.height = '230vh'
+            document.getElementById('news4').style.position = 'relative'
+            document.getElementById('news4').style.marginTop = '30px'
+            document.getElementById('news3Child').style.display = 'block'
+            document.getElementById('news3Child').style.paddingTop = '20px'
+            document.getElementById('news3').style.height = '60vh'
+            document.getElementById('news3').style.width = '40vw'
+            document.getElementById('news3').style.right = '0px'
+            document.getElementById('news4').style.right = '0px'
+            document.getElementById('news2Child').style.display = 'block'
+            document.getElementById('news4').style.width = '40vw'
+            document.getElementById('news3Img').style.width = '250px'
+            document.getElementById('news2').style.height = '40vh'
+            document.getElementById('abtTopicEle1').style.width = '50vh'
+            document.getElementById('abtTopicEle2').style.width = '50vh'
+            document.getElementById('abtTopicEle3').style.width = '50vh'
+        }
+    }
+    
+    
+    Resize()
+    window.onresize = Resize;
+
+    VANTA.GLOBE({
+  el: "#fp",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xff2d2d,
+  color2: 0xf29494,
+  backgroundColor: 0x15191E
+})
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Proxima+Nova');
+    body {
+        background-color: #fff;
+        color: #000;
+        font-family: 'proxima-nova', sans-serif;
+        font-size: 18px;
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 1.875;
+        margin: 0;
+    }
+    .pages{
+        color: white;
+    }
+    .pages:hover{
+        color: rgb(230, 141, 141);
+        cursor: pointer;
+    }
+    .abtBtn{
+        -webkit-box-shadow: 0px 0px 9px 0px rgba(255,0,13,1);
+        -moz-box-shadow: 0px 0px 9px 0px rgba(255,0,13,1);
+        box-shadow: 0px 0px 9px 0px rgba(255,0,13,1);
+    }
+    .abtBtn:hover{
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(255,0,13,1);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(255,0,13,1);
+        box-shadow: 0px 0px 20px 0px rgba(255,0,13,1);
+    }
+    .oneArticle:hover{
+        -webkit-box-shadow: 0px 0px 20px 0px rgb(0, 0, 0);
+        -moz-box-shadow: 0px 0px 20px 0px rgb(0, 0, 0);
+        box-shadow: 0px 0px 20px 0px rgb(0, 0, 0);
+    }
+    .fpAds:hover{
+        opacity: 0.3;
+    }
+    .courseTitleTxt {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+    }
+    .abtImg:hover{
+        opacity: 0.6;
+    }
+
+    /* scroll bar */
+    *::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a63030;
+  border-radius: 20px;
+  /* border: 3px solid rgb(255, 38, 0); */
+}
+</style>
+</html>
