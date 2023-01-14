@@ -8,12 +8,14 @@
 </head>
 <body>
     redirecting...
+    <h1 id="1txt" ></h1>
 </body>
 <script>
-    // window.location.href = "JuiceTrack://redirect?code={{code}}";
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     alert(code)
+    document.getElementById('1txt').innerHTML = code
+    // window.location.href = "JuiceTrack://redirect?code={{code}}";
     // window.location.href = "exp://u.expo.dev/514f7681-ed55-437f-950b-f925ae0a01ab?channel-name=default&runtime-version=80";
 </script>
 </html>
